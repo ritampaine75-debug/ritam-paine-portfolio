@@ -1,7 +1,10 @@
 /**
  * generate-static.mjs
- * Regenerates public/sitemap.xml from the real project + article data.
- * Run automatically before every production build (`npm run build`).
+ * Regenerates public/robots.txt and public/sitemap.xml from the real project
+ * + article data. Run automatically before every production build.
+ *
+ * The canonical origin is read from VITE_SITE_URL (falling back to the GitHub
+ * Pages URL) so the generated files always match the deployed domain.
  *
  *   npm run build   →   node scripts/generate-static.mjs && vite build
  */
@@ -13,7 +16,8 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const SRC = join(ROOT, 'src');
 
-const SITE_URL = 'https://ritampaine75-debug.github.io/ritam-paine-portfolio';
+const SITE_URL =
+  process.env.VITE_SITE_URL || 'https://ritampaine75-debug.github.io/ritam-paine-portfolio';
 
 async function loadJson(path) {
   const mod = await import(pathToFileURL(join(SRC, path)).href);
@@ -37,7 +41,7 @@ const routes = [
     loc: `/projects/${p.slug}`,
     priority: '0.8',
     changefreq: 'weekly',
-    lastmod: p.status === 'published' ? TODAY : TODAY,
+    lastmod: TODAY,
   })),
   ...articles.map((a) => ({
     loc: `/blog/${a.slug}`,
@@ -65,5 +69,18 @@ ${urls}
 </urlset>
 `;
 
+// robots.txt — regenerated so the Sitemap directive matches the live domain.
+const robots = `# Ritam Paine — robots.txt
+# Generated at build time from VITE_SITE_URL (or the default GitHub Pages URL).
+
+User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+
+writeFileSync(join(ROOT, 'public', 'robots.txt'), robots, 'utf8');
 writeFileSync(join(ROOT, 'public', 'sitemap.xml'), xml + '\n', 'utf8');
-console.log(`[sitemap] Wrote ${routes.length} URLs to public/sitemap.xml`);
+console.log(
+  `[static] Sitemap: ${routes.length} URLs | robots.txt -> ${SITE_URL}/sitemap.xml`
+);

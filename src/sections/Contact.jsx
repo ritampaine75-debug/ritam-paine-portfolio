@@ -40,15 +40,15 @@ export default function Contact() {
                 </span>
               </a>
 
-              {email ? (
-                <a href={`mailto:${email}`} className="btn btn-ghost" style={{ justifyContent: 'flex-start' }}>
-                  <Icon name="mail" />
-                  Email Me
-                  <span style={{ marginLeft: 'auto', opacity: 0.75 }}>
-                    <Icon name="arrowRight" />
-                  </span>
-                </a>
-              ) : null}
+            {email ? (
+              <a href={`mailto:${email}`} className="btn btn-primary" style={{ justifyContent: 'flex-start' }}>
+                <Icon name="mail" />
+                Email Me
+                <span style={{ marginLeft: 'auto', opacity: 0.75 }}>
+                  <Icon name="arrowRight" />
+                </span>
+              </a>
+            ) : null}
 
               <a
                 href={SOCIAL.githubUrl}
@@ -65,6 +65,7 @@ export default function Contact() {
               </a>
 
               <p className="contact-note" style={{ marginTop: 2 }}>
+                {email ? `${email} · ` : ''}
                 {SOCIAL.instagramHandle} &middot; github.com/{SOCIAL.githubUsername}
               </p>
             </div>

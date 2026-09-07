@@ -9,7 +9,7 @@ export const ORIGIN = SITE_URL;
 const abs = (path) => `${ORIGIN}${path === '/' ? '/' : path}`;
 
 export function personSchema() {
-  return {
+  const node = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': `${ORIGIN}/#person`,
@@ -32,6 +32,8 @@ export function personSchema() {
     ],
     sameAs: [SOCIAL.githubUrl, SOCIAL.instagramUrl],
   };
+  if (SOCIAL.contactEmail) node.email = SOCIAL.contactEmail;
+  return node;
 }
 
 export function websiteSchema() {

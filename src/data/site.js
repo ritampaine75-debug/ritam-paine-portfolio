@@ -10,12 +10,15 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-// Canonical origin. Defaults to GitHub Pages for this repository
-// (https://<user>.github.io/<repository>/).
-// When deploying to a custom domain, change this one constant, e.g.:
-//   'https://ritampaine.dev'
-// and rebuild. The value is used for canonical URLs and Open Graph images.
-export const SITE_URL = 'https://ritampaine75-debug.github.io/ritam-paine-portfolio';
+// Canonical origin.
+// Defaults to GitHub Pages for this repository (https://<user>.github.io/<repository>/).
+// Override at build time with VITE_SITE_URL (the Vercel deployment sets it to
+// https://ritam-paine-portfolio.vercel.app automatically via vercel.json) so
+// canonical URLs, Open Graph URLs, robots.txt and the sitemap always point at
+// the domain the site is actually served from.
+export const SITE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env.VITE_SITE_URL) ||
+  'https://ritampaine75-debug.github.io/ritam-paine-portfolio';
 
 // Repository that hosts this source code (used for footer & README links).
 export const SITE_REPO_URL = 'https://github.com/ritampaine75-debug/ritam-paine-portfolio';
@@ -42,10 +45,9 @@ export const SOCIAL = {
   instagramHandle: '@ritam_2024_0',
   instagramUsername: 'ritam_2024_0',
   instagramUrl: 'https://www.instagram.com/ritam_2024_0',
-  // Public contact email is intentionally NOT set (none supplied).
-  // To enable the "Email Me" button later, set contactEmail below to a real
-  // address. Leave as an empty string to keep the email CTA hidden.
-  contactEmail: '',
+  // Public contact email — used by the "Email Me" button (Contact section),
+  // the footer and the Person JSON-LD structured data.
+  contactEmail: 'ritampaine75@gmail.com',
 };
 
 // Facts verified from the public GitHub API (checked September 2026).

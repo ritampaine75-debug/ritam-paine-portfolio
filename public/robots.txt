@@ -1,5 +1,5 @@
 # Ritam Paine — robots.txt
-# Production-ready default: allow all crawlers, point to the XML sitemap.
+# Generated at build time from VITE_SITE_URL (or the default GitHub Pages URL).
 
 User-agent: *
 Allow: /

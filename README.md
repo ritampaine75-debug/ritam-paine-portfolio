@@ -212,24 +212,33 @@ on the `gh-pages` branch and use **Deploy from a branch**.
 
 ### Vercel
 
+Deploying to a **custom domain / Vercel root** requires a root-URL build (the default
+build targets the GitHub Pages sub-path `/ritam-paine-portfolio/`, which causes a blank
+page on Vercel). This repository already handles it:
+
+1. Import the repository on Vercel.
+2. **Framework Preset:** Vite — the checked-in `vercel.json` automatically runs
+   `VITE_SITE_URL=https://ritam-paine-portfolio.vercel.app npm run build:root` and sets
+   `outputDirectory: dist`, so canonical/OG/sitemap URLs point at your Vercel domain and
+   asset paths are root-relative.
+3. Deploy. SPA routes are served via the `rewrites` rule in `vercel.json`.
+
+Manual equivalent:
+
 ```bash
 npm i -g vercel
-vercel            # build command: npm run build
-# output directory: dist
+vercel          # if asked: build = npm run build:root, output = dist
 ```
 
-For a root-URL deploy use `VITE_BASE_PATH=/ npm run build`.
-
-### Netlify
-
-- Build command: `npm run build` (set `VITE_BASE_PATH=/`)
-- Publish directory: `dist`
+For other hosts at the domain root (Netlify etc.), build with
+`VITE_BASE_PATH=/ VITE_SITE_URL=https://your-domain npm run build`.
 
 ### Custom domain
 
-Change `SITE_URL` in `src/data/site.js` to your domain (e.g. `https://ritam-paine.dev`), rebuild,
-and the canonical URLs, Open Graph URLs, robots.txt and sitemap all update automatically. Add the
-domain to your hosting provider and set up the DNS record.
+Set `VITE_SITE_URL` at build time to your domain (e.g. `https://ritam-paine.dev`) and build with
+`--base=/` — canonical URLs, Open Graph URLs, `robots.txt` and `sitemap.xml` all update
+automatically. The fallback value lives in `src/data/site.js`. Add the domain to your hosting
+provider and set up the DNS record.
 
 ---
 
@@ -247,8 +256,8 @@ the goal is a technically strong, indexable, honest foundation.
 - **GitHub:** [github.com/ritampaine75-debug](https://github.com/ritampaine75-debug)
 - **Instagram:** [@ritam_2024_0](https://www.instagram.com/ritam_2024_0)
 - **Website:** [ritam-paine-portfolio](https://ritampaine75-debug.github.io/ritam-paine-portfolio/)
-- **Email:** configure one by setting `contactEmail` in `src/data/site.js` (kept empty on purpose —
-  no public email is listed yet).
+- **Email:** [ritampaine75@gmail.com](mailto:ritampaine75@gmail.com) (powered by the
+  "Email Me" button on the Contact section; edit `contactEmail` in `src/data/site.js`).
 
 ---
 
