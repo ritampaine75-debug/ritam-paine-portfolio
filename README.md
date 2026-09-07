@@ -194,15 +194,21 @@ npm run preview
 
 This site deploys to **GitHub Pages**, **Vercel** or **Netlify** — it is a static build.
 
-### GitHub Pages (the simplest — used for this repository)
+### GitHub Pages (the simplest — recommended for this repository)
+
+A CI workflow (`.github/workflows/deploy.yml`) builds the site and deploys it
+with GitHub Pages on every push to `main`. To activate it once:
 
 1. Push this repository to GitHub.
 2. Open **Settings → Pages**.
-3. Under **Build and deployment**, choose **Source: Deploy from a branch** →
-   branch `main`, folder `/ (root)`.
-4. Save. Your site is live at
-   `https://<username>.github.io/ritam-paine-portfolio/`.
-5. SPA deep links work out of the box — the build writes `404.html`.
+3. Under **Build and deployment → Source**, select **GitHub Actions**.
+4. Push a commit (or run the *Deploy to GitHub Pages* workflow manually under
+   **Actions**). The site is published to
+   `https://ritampaine75-debug.github.io/ritam-paine-portfolio/`.
+5. SPA deep links work out of the box — the build also writes `404.html`.
+
+Manual alternative: commit the output of `npm run build` (the `dist/` folder)
+on the `gh-pages` branch and use **Deploy from a branch**.
 
 ### Vercel
 
