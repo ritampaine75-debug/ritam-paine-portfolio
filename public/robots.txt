@@ -1,0 +1,7 @@
+# Ritam Paine — robots.txt
+# Production-ready default: allow all crawlers, point to the XML sitemap.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ritampaine75-debug.github.io/ritam-paine-portfolio/sitemap.xml

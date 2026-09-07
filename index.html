@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ritam Paine | Web Developer &amp; Digital Product Builder</title>
+    <meta
+      name="description"
+      content="Ritam Paine is a web developer building modern web applications, AI-powered tools, real-time systems, Firebase projects and experimental digital products."
+    />
+    <script>
+      // Apply theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var stored = localStorage.getItem('rp-theme');
+          var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="%BASE_URL%favicon.ico" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <link rel="canonical" href="https://ritampaine75-debug.github.io/ritam-paine-portfolio/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Ritam Paine" />
+    <meta name="theme-color" content="#08090f" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ritam Paine — Web Developer" />
+    <meta property="og:url" content="https://ritampaine75-debug.github.io/ritam-paine-portfolio/" />
+    <meta property="og:title" content="Ritam Paine | Web Developer &amp; Digital Product Builder" />
+    <meta
+      property="og:description"
+      content="I build modern web applications, intelligent tools, real-time systems, automation workflows and experimental digital products."
+    />
+    <meta property="og:image" content="https://ritampaine75-debug.github.io/ritam-paine-portfolio/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ritam Paine | Web Developer &amp; Digital Product Builder" />
+    <meta
+      name="twitter:description"
+      content="I build modern web applications, intelligent tools, real-time systems, automation workflows and experimental digital products."
+    />
+    <meta name="twitter:image" content="https://ritampaine75-debug.github.io/ritam-paine-portfolio/og-image.png" />
+    <meta name="twitter:creator" content="@ritam_2024_0" />
+    <!-- Preconnect hints -->
+    <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

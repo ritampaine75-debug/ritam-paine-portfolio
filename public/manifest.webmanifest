@@ -1,0 +1,45 @@
+{
+  "name": "Ritam Paine — Web Developer & Digital Product Builder",
+  "short_name": "Ritam Paine",
+  "description": "Portfolio of Ritam Paine — web developer building modern web applications, AI-powered tools, real-time systems, Firebase projects and experimental digital products.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07090f",
+  "theme_color": "#07090f",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["portfolio", "developer", "web"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "url": "./projects",
+      "description": "Browse Ritam Paine's projects"
+    },
+    {
+      "name": "Blog",
+      "url": "./blog",
+      "description": "Read the developer journal"
+    }
+  ]
+}

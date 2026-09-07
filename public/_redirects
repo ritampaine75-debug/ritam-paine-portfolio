@@ -1,0 +1,3 @@
+# Netlify SPA fallback (used when deploying this build to Netlify).
+# Ignored by GitHub Pages and Vercel.
+/*  /index.html  200

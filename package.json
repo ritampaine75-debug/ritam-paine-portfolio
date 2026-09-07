@@ -1,0 +1,32 @@
+{
+  "name": "ritam-paine-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Premium personal developer portfolio website for Ritam Paine — Web Developer & Digital Product Builder.",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/generate-static.mjs && vite build",
+    "preview": "vite preview",
+    "build:github": "vite build",
+    "build:root": "node scripts/generate-static.mjs && vite build --base=/"
+  },
+  "keywords": [
+    "ritam-paine",
+    "portfolio",
+    "web-developer",
+    "react",
+    "vite",
+    "developer-portfolio"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.14",
+    "@vitejs/plugin-react": "^4.3.4"
+  }
+}
